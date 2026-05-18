@@ -430,11 +430,6 @@ document.addEventListener('keydown', e => {
 const contactForm = document.getElementById('contactForm');
 const formNote    = document.getElementById('formNote');
 
-contactForm.addEventListener('submit', () => {
-  const btn = contactForm.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Mengirim...';
-});
 
 function showNote(msg, type) {
   formNote.textContent  = msg;

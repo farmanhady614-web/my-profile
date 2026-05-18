@@ -430,44 +430,16 @@ document.addEventListener('keydown', e => {
 const contactForm = document.getElementById('contactForm');
 const formNote    = document.getElementById('formNote');
 
-contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const name    = document.getElementById('formName').value.trim();
-  const email   = document.getElementById('formEmail').value.trim();
-  const message = document.getElementById('formMessage').value.trim();
-
-  if (!name || !email || !message) {
-    showNote('Mohon isi semua field yang wajib.', 'error');
-    return;
-  }
-
-  /* 
-    EDIT: Integrasikan dengan backend / email service Anda di sini.
-    Contoh: kirim ke Formspree, EmailJS, atau endpoint server sendiri.
-    
-    Untuk sementara ini hanya simulasi pengiriman:
-  */
+contactForm.addEventListener('submit', () => {
   const btn = contactForm.querySelector('button[type="submit"]');
-  btn.disabled    = true;
+  btn.disabled = true;
   btn.textContent = 'Mengirim...';
-
-  setTimeout(() => {
-    contactForm.reset();
-    showNote('✓ Pesan berhasil dikirim! Saya akan segera membalas.', 'success');
-    btn.disabled    = false;
-    btn.innerHTML   = 'Kirim Pesan <span class="btn-icon">→</span>';
-  }, 1500);
 });
 
 function showNote(msg, type) {
   formNote.textContent  = msg;
   formNote.className    = 'form-note ' + type;
-  setTimeout(() => {
-    formNote.textContent = '';
-    formNote.className   = 'form-note';
-  }, 5000);
 }
-
 
 /* ── 9. FOOTER YEAR ─────────────────────────────────────────── */
 const footerYear = document.getElementById('footerYear');

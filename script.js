@@ -25,8 +25,8 @@ const PROJECTS_DATA = [
     name: 'E-Commerce Platform',
     desc: 'Aplikasi apotek online fullstack dengan fitur keranjang belanja, pembayaran, dan manajemen produk.',
     tags: ['Native', 'MySQL', 'JavaScript', 'CSS'],
-    demo: 'https://demo.contoh.com',
-    github: 'https://github.com/username/project1',
+    demo: '',
+    github: '',
     screenshots: [
       'assets/projects/projects1/login.jpg',
       'assets/projects/projects1/dashboard.jpg',
@@ -40,8 +40,8 @@ const PROJECTS_DATA = [
     name: 'Task Management App',
     desc: 'Aplikasi manajemen guru dengan fitur drag-and-drop, absensi, dan rekap nilai.',
     tags: ['Node.js', 'Express', 'MySQL', 'JavaScript'],
-    demo: 'https://demo.contoh.com',
-    github: 'https://github.com/username/project2',
+    demo: '',
+    github: '',
     screenshots: [
       'assets/projects/project2-1.jpg',
       'assets/projects/project2-2.jpg',
@@ -65,8 +65,8 @@ const PROJECTS_DATA = [
     name: 'Point of Sale System',
     desc: 'Dashboard visualisasi data bisnis real-time dengan berbagai jenis grafik,laporan ekspor dan dilengkapi sistem kasir.',
     tags: ['Node.js', 'Express', 'MySQL', 'UI/UX Design'],
-    demo: 'https://demo.contoh.com',
-    github: 'https://github.com/username/project4',
+    demo: '',
+    github: '',
     screenshots: [
       'assets/projects/projects4/home.jpg',
       'assets/projects/projects4/login.jpg',

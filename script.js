@@ -54,11 +54,11 @@ const PROJECTS_DATA = [
     desc: 'Tool berbasis web untuk membuat landing page profesional secara instan dengan berbagai tema.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js'],
     demo: '',
-    github: 'https://github.com/username/project3',
+    github: 'https://farmanhady614-web.github.io/barber-shop/',
     screenshots: [
-      'assets/projects/project3-1.jpg',
-      'assets/projects/project3-2.jpg',
-      'assets/projects/project3-3.jpg',
+      'assets/projects/projects3/1.png',
+      'assets/projects/projects3/2.png',
+      'assets/projects/projects3/3.png',
     ]
   },
   {

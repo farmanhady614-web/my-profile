@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- =============================================
+    EDIT: Ganti judul tab browser di sini
+  ============================================= -->
+  <title>Portofolio — Fullstack Developer</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Tipografi: Playfair Display (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+    NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- EDIT: Ganti teks logo di sini -->
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">{</span>
+        <span class="logo-name">Dev</span>
+        <span class="logo-bracket">}</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Tombol Dark/Light Mode -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon sun">☀</span>
+          <span class="theme-icon moon">◐</span>
+        </button>
+        <!-- Hamburger Mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+    HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="home">
+    <!-- Background 3D animated blobs -->
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-lines"></div>
+    </div>
+
+    <!-- Floating 3D geometric element -->
+    <div class="floating-cube" aria-hidden="true">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-tagline">Selamat datang di portofolio saya</p>
+
+      <!-- EDIT: Ganti nama lengkap Anda di sini -->
+      <h1 class="hero-name">
+        <span class="name-line">Farman</span>
+        <span class="name-line accent">Hady</span>
+      </h1>
+
+      <!-- EDIT: Ganti profesi jika perlu -->
+      <div class="hero-role">
+        <span class="role-bracket">&lt;</span>
+        <span id="typedRole"></span>
+        <span class="cursor-blink">|</span>
+        <span class="role-bracket">/&gt;</span>
+      </div>
+
+      <!-- EDIT: Ganti deskripsi singkat Anda di sini -->
+      <p class="hero-desc">
+        Saya membangun aplikasi web yang cepat, skalabel, dan berpusat pada pengalaman pengguna —
+        dari database hingga antarmuka yang memukau.
+      </p>
+
+      <div class="hero-cta">
+        <!-- EDIT: Ganti href ke file CV Anda, misal: assets/CV_NamaAnda.pdf -->
+        <a href="#projects" class="btn btn-outline">
+          Lihat Project <span class="btn-icon">→</span>
+        </a>
+      </div>
+
+      <!-- Stats bawah hero -->
+      <div class="hero-stats">
+        <!-- EDIT: Sesuaikan angka statistik Anda -->
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Tahun Belajar Dalam Bidang IT</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Project Selesai</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Klien Puas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    ABOUT SECTION
+  ============================================================ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- Foto Profil -->
+        <div class="about-photo-wrapper">
+          <div class="photo-frame">
+            <!-- EDIT: Ganti src ke foto profil Anda, misal: assets/img/foto-profil.jpg -->
+            <img src="assets/img/profile1.png" alt="Foto Profil" class="profile-photo" id="profilePhoto" onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'" />
+            <div class="photo-placeholder" id="photoPlaceholder">
+              <span>Foto<br/>Profil</span>
+            </div>
+          </div>
+          <div class="photo-accent-dot"></div>
+          <div class="photo-accent-ring"></div>
+        </div>
+
+        <!-- Biodata -->
+        <div class="about-info">
+          <!-- EDIT: Ganti semua data pribadi di bawah ini -->
+          <h3 class="about-greeting">
+            Hi, saya <span class="highlight">Farman Hady</span> 👋
+          </h3>
+
+          <p class="about-desc">
+            <!--
+              EDIT: Ganti deskripsi diri Anda di sini.
+              Ceritakan background, passion, dan apa yang membuat Anda unik sebagai developer.
+            -->
+            Seorang Fullstack Developer dengan pengalaman lebih dari 3 tahun dalam membangun
+            aplikasi web end-to-end. Saya memiliki passion yang kuat dalam menciptakan solusi
+            digital yang tidak hanya berfungsi dengan baik, tetapi juga memberikan pengalaman
+            pengguna yang luar biasa. Saya percaya bahwa kode yang bersih dan desain yang
+            intuitif adalah dua sisi dari satu koin yang sama.
+          </p>
+
+          <!-- Tabel biodata — EDIT semua data di sini -->
+          <div class="bio-table">
+            <div class="bio-row">
+              <span class="bio-label">📛 Nama</span>
+              <!-- EDIT: Nama lengkap -->
+              <span class="bio-value">Farman Hadi</span>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">📍 Alamat</span>
+              <!-- EDIT: Alamat Anda -->
+              <span class="bio-value">Masbagik, Kab.Lombok Timur, Nusa Tenggara Barat, Indonesia</span>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">📧 Email</span>
+              <!-- EDIT: Email Anda -->
+              <a href="farmanhady614@gmail.com" class="bio-value bio-link">farmanhady614@gmail.com</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">💬 WhatsApp</span>
+              <!-- EDIT: Nomor WhatsApp Anda (format internasional, tanpa +) -->
+              <a href="https://wa.me/6285237329865" target="_blank" class="bio-value bio-link">+62 852-3732-9865</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">💼 LinkedIn</span>
+              <!-- EDIT: URL LinkedIn Anda -->
+              <a href="https://linkedin.com/in/username" target="_blank" class="bio-value bio-link">linkedin.com/in/username</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">🐙 GitHub</span>
+              <!-- EDIT: URL GitHub Anda -->
+              <a href="https://github.com/fardy-website" target="_blank" class="bio-value bio-link">github.com/fardy-website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SKILLS SECTION
+  ============================================================ -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="skills-intro">
+        Teknologi yang saya gunakan sehari-hari untuk membangun produk digital.
+      </p>
+
+      <!--
+        EDIT: Untuk menambah/menghapus skill, tambahkan atau hapus elemen .skill-card di bawah.
+        Format: <div class="skill-card" data-level="ANGKA_0-100">
+                  <div class="skill-icon">EMOJI</div>
+                  <span class="skill-name">NAMA SKILL</span>
+                  <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+      -->
+      <div class="skills-grid">
+        <div class="skill-card" data-level="90">
+          <div class="skill-icon">🌐</div>
+          <span class="skill-name">HTML</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="85">
+          <div class="skill-icon">🎨</div>
+          <span class="skill-name">CSS</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="80">
+          <div class="skill-icon">⚡</div>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="75">
+          <div class="skill-icon">🟢</div>
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="75">
+          <div class="skill-icon">🚂</div>
+          <span class="skill-name">Express.js</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="80">
+          <div class="skill-icon">🗄️</div>
+          <span class="skill-name">MySQL</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="70">
+          <div class="skill-icon">🐘</div>
+          <span class="skill-name">PHP</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="72">
+          <div class="skill-icon">🔴</div>
+          <span class="skill-name">Laravel</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="85">
+          <div class="skill-icon">🐙</div>
+          <span class="skill-name">Git & GitHub</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-level="78">
+          <div class="skill-icon">✏️</div>
+          <span class="skill-name">UI/UX Design</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    PROJECTS SECTION
+  ============================================================ -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="projects-intro">
+        Beberapa project terbaik yang pernah saya kerjakan.
+      </p>
+
+      <!--
+        Projects di-render oleh script.js dari array PROJECTS_DATA.
+        EDIT project-project Anda langsung di script.js — cari komentar "EDIT: DATA PROJECT"
+      -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Diisi otomatis oleh JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    CONTACT SECTION
+  ============================================================ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Info Kontak -->
+        <div class="contact-info">
+          <h3 class="contact-heading">Mari Berkolaborasi</h3>
+          <p class="contact-desc">
+            Punya project yang ingin dikerjakan bersama? Atau sekadar ingin
+            berdiskusi soal teknologi? Jangan ragu untuk menghubungi saya.
+          </p>
+
+          <div class="contact-items">
+            <!-- EDIT: Ganti semua info kontak di sini -->
+            <a href="mailto:email@contoh.com" class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">farmanhady614@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/6287895623651" target="_blank" class="contact-item">
+              <div class="contact-item-icon">💬</div>
+              <div>
+                <span class="contact-item-label">WhatsApp</span>
+                <!-- EDIT: Nomor WhatsApp -->
+                <span class="contact-item-value">+62 878-9562-3651</span>
+              </div>
+            </a>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <span class="contact-item-label">Lokasi</span>
+                <!-- EDIT: Alamat / Kota -->
+                <span class="contact-item-value">Masbagik, Kab.Lombok Timur,Nusa Tenggara Barat, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="social-links">
+            <!-- EDIT: Ganti href ke profil sosmed Anda -->
+            <a href="https://github.com/username" target="_blank" class="social-btn" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/username" target="_blank" class="social-btn" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://instagram.com/username" target="_blank" class="social-btn" title="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form Kontak -->
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="formName">Nama</label>
+              <input type="text" id="formName" placeholder="Nama lengkap Anda" required />
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email</label>
+              <input type="email" id="formEmail" placeholder="email@contoh.com" required />
+            </div>
+            <div class="form-group">
+              <label for="formSubject">Subjek</label>
+              <input type="text" id="formSubject" placeholder="Topik pesan Anda" />
+            </div>
+            <div class="form-group">
+              <label for="formMessage">Pesan</label>
+              <textarea id="formMessage" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Kirim Pesan <span class="btn-icon">→</span>
+            </button>
+            <p class="form-note" id="formNote"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-bracket">{</span>
+          <!-- EDIT: Nama di footer -->
+          <span class="logo-name">Fardy</span>
+          <span class="logo-bracket">}</span>
+        </div>
+        <p class="footer-copy">
+          <!-- EDIT: Ganti nama di copyright -->
+          &copy; <span id="footerYear"></span> Fardy. All rights reserved.
+        </p>
+        <div class="footer-socials">
+          <!-- EDIT: Ganti href ke profil sosmed Anda -->
+          <a href="https://github.com/username" target="_blank" aria-label="GitHub">GH</a>
+          <a href="https://linkedin.com/in/username" target="_blank" aria-label="LinkedIn">LI</a>
+          <a href="https://instagram.com/username" target="_blank" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+    PROJECT DETAIL MODAL
+    (diisi dan dikontrol oleh script.js)
+  ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="projectModal">
+      <button class="modal-close" id="modalClose" aria-label="Tutup modal">✕</button>
+      <div class="modal-inner" id="modalInner">
+        <!-- Diisi oleh JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

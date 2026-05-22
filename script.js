@@ -38,7 +38,7 @@ const PROJECTS_DATA = [
     ]
   },
   {
-    name: 'Sistem Informasi Absesnsi Sekolah',
+    name: 'Sistem Informasi Absensi Sekolah',
     desc: 'Aplikasi manajemen guru dengan fitur drag-and-drop, absensi, dan rekap nilai.',
     tags: ['Node.js', 'Express', 'MySQL', 'JavaScript'],
     demo: '',

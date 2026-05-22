@@ -28,25 +28,31 @@ const PROJECTS_DATA = [
     demo: '',
     github: '',
     screenshots: [
-      'assets/projects/projects1/login.jpg',
-      'assets/projects/projects1/dashboard.jpg',
-      'assets/projects/projects1/laporan.jpg',
-      'assets/projects/projects1/produk.jpg',
-      'assets/projects/projects1/kasir.jpg',
-      'assets/projects/projects1/customer.jpg',
+      'assets/projects/projects1/login.png',
+      'assets/projects/projects1/dashboard.png',
+      'assets/projects/projects1/laporan.png',
+      'assets/projects/projects1/produk.png',
+      'assets/projects/projects1/kasir.png',
+      'assets/projects/projects1/customer.png',
+      'assets/projects/projects1/setting.png',
     ]
   },
   {
-    name: 'Task Management App',
+    name: 'Sistem Informasi Absesnsi Sekolah',
     desc: 'Aplikasi manajemen guru dengan fitur drag-and-drop, absensi, dan rekap nilai.',
     tags: ['Node.js', 'Express', 'MySQL', 'JavaScript'],
     demo: '',
     github: '',
     screenshots: [
-      'assets/projects/project2-1.jpg',
-      'assets/projects/project2-2.jpg',
-      'assets/projects/project2-3.jpg',
-      'assets/projects/project2-4.jpg',
+      'assets/projects/projects2/login.png',
+      'assets/projects/projects2/dashboard.png',
+      'assets/projects/projects2/absen.png',
+      'assets/projects/projects2/siswa.png',
+      'assets/projects/projects2/kelas.png',
+      'assets/projects/projects2/laporan.png',
+      'assets/projects/projects2/user.png',
+      'assets/projects/projects2/import.png',
+
     ]
   },
   {
@@ -75,6 +81,18 @@ const PROJECTS_DATA = [
       'assets/projects/projects4/transaksi.jpg',
       'assets/projects/projects4/setting.jpg',
       'assets/projects/projects4/kasir.jpg',
+    ]
+  },
+  {
+    name: 'PixelCraft Studio',
+    desc: 'Landing page yang menampilkan pengiklanan untuk sebuah jasa.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Three.js'],
+    demo: 'https://pixelcraft-studio-kappa.vercel.app/',
+    github: '',
+    screenshots: [
+      'assets/projects/projects5/home.png',
+      'assets/projects/projects5/about.png',
+      'assets/projects/projects5/servis.png',
     ]
   },
 ];

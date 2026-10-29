@@ -22,10 +22,10 @@
 ================================================================ */
 const PROJECTS_DATA = [
   {
-    name: 'E-Commerce Platform',
-    desc: 'Aplikasi apotek online fullstack dengan fitur keranjang belanja, pembayaran, dan manajemen produk.',
-    tags: ['Native', 'MySQL', 'JavaScript', 'CSS'],
-    demo: '',
+    name: 'Sistem Informasi Manajemen Apotek Peresak Farma',
+    desc: 'Website ini merupakan aplikasi sistem manajemen apotek dan kasir (Point of Sale) yang komprehensif. Sistem ini dilengkapi dengan pembagian hak akses (admin dan apoteker) untuk mengelola inventaris obat, memonitor stok masuk dan keluar, mengelola data supplier dan pengguna (membership), memproses transaksi dan pembayaran, hingga menghasilkan laporan penjualan dan stok. Selain itu, terdapat modul khusus untuk apoteker yang mencakup fitur monitoring dan konsultasi.',
+    tags: ['Native', 'MySQL', 'HTML', 'CSS','JavaScript'],
+    demo: 'https://apotekperesak.my.id/',
     github: '',
     screenshots: [
       'assets/projects/projects1/login.png',
@@ -68,8 +68,8 @@ const PROJECTS_DATA = [
     ]
   },
   {
-    name: 'Point of Sale System',
-    desc: 'Dashboard visualisasi data bisnis real-time dengan berbagai jenis grafik,laporan ekspor dan dilengkapi sistem kasir.',
+    name: 'Brewline POS System',
+    desc: '**Brewline POS System** adalah website sistem kasir digital untuk membantu pengelolaan bisnis kafe secara modern dan efisien. Website ini dilengkapi dengan fitur pengelolaan menu dan kategori, pencatatan transaksi penjualan, pemantauan pendapatan melalui dashboard, laporan transaksi, serta pengaturan informasi toko. Dengan tampilan modern bernuansa gelap yang elegan, Brewline POS System membantu pemilik kafe mengelola operasional bisnis dengan lebih praktis, terstruktur, dan profesional.',
     tags: ['Node.js', 'Express', 'MySQL', 'UI/UX Design'],
     demo: '',
     github: '',
@@ -85,7 +85,7 @@ const PROJECTS_DATA = [
   },
   {
     name: 'PixelCraft Studio',
-    desc: 'Landing page yang menampilkan pengiklanan untuk sebuah jasa.',
+    desc: 'Website PixelCraft Studio merupakan website profil dan promosi studio digital kreatif yang dirancang untuk memperkenalkan layanan teknologi dan kreativitas kepada calon klien secara profesional. Website ini menyediakan beberapa fitur, seperti halaman Home untuk menampilkan identitas studio, About untuk menjelaskan profil, Services untuk menampilkan layanan pengembangan website (Fullstack Web Development), desain UI/UX, video editing, iklan produk, pembuatan konten, serta branding dan media digital.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js'],
     demo: 'https://pixelcraft-studio-kappa.vercel.app/',
     github: '',
@@ -93,6 +93,25 @@ const PROJECTS_DATA = [
       'assets/projects/projects5/home.png',
       'assets/projects/projects5/about.png',
       'assets/projects/projects5/servis.png',
+    ]
+  },
+  {
+    name: 'Rab Pro System',
+    desc: 'RAB Pro System merupakan website yang dirancang untuk membantu proses penyusunan dan pengelolaan Rencana Anggaran Biaya (RAB) proyek secara lebih praktis, terstruktur, dan efisien. Website ini dilengkapi dengan berbagai fitur, seperti dashboard yang menampilkan ringkasan data dan grafik anggaran, pengelolaan data proyek, pembuatan dan rekapitulasi RAB, pengelolaan database material, analisis harga satuan pekerjaan (AHSP), pemantauan progres pekerjaan, serta ekspor laporan ke dalam format Excel dan PDF. Selain itu, tersedia fitur manajemen pengguna dan pengaturan sistem untuk mendukung pengelolaan akses serta keamanan aplikasi. Dari segi tampilan.',
+    tags: ['Node.js', 'Express.js + React.js', 'ExcelJS + PDFKit', 'MySQL 8.0'],
+    demo: '',
+    github: '',
+    screenshots: [
+      'assets/projects/projects6/01.png',
+      'assets/projects/projects6/02.png',
+      'assets/projects/projects6/03.png',
+      'assets/projects/projects6/04.png',
+      'assets/projects/projects6/05.png',
+      'assets/projects/projects6/06.png',
+      'assets/projects/projects6/07.png',
+      'assets/projects/projects6/08.png',
+      'assets/projects/projects6/09.png',
+      'assets/projects/projects6/10.png',
     ]
   },
 ];

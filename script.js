@@ -180,11 +180,30 @@ const PROJECTS_DATA = [
     category: 'Website · Pemerintahan Desa',
     desc: 'Website resmi desa untuk menyajikan profil, informasi, dan layanan desa kepada warga secara online.',
     longDesc: 'Website desa yang dirancang untuk menjadi pusat informasi bagi warga: profil desa, berita atau pengumuman, dan layanan desa. Dibangun dengan arsitektur fullstack agar data mudah dikelola dan diperbarui oleh pengelola desa.',
-    features: [],
-    tags: ['Node.js', 'Express.js', 'React.js', 'MySQL'],
+    features: [
+      'Beranda menamilkan informasi utama desa, sabutan kepala desa, berita terbaru, pengumuman, dan kontak penting',
+      'Halaman profil desa, struktur pemerintahan, perangkat desa, wilayah dan batas geografis',
+      'Publikasi kegiatan desa, berita masyarakat, dan pengumuman resmi',
+      'Grafik jumlah penduduk, pendidikan, pekerjaan, kelompok umurdan statistik desa',
+      'Peta interaktif wilayah desa dan fasilitas umum',
+      'Menampilkan wisata, produk unggulan, dan UMKM desa',
+      'Layanan pengajuan surat administrasi desa secara online (opsional)',
+      'Dashboard admin untuk mengelola konten, berita, pengumuman, dan data desa',
+    ],
+    tags: ['HTML','CSS','JavaScript', 'Bootstrap', 'PHP', 'MySQL'],
     demo: '',
     github: '',
-    screenshots: [], // ← tambahkan screenshot di sini jika sudah ada
+    screenshots: [
+      { src: 'assets/projects/projects7/01.png', caption: 'Beranda Desa' },
+      { src: 'assets/projects/projects7/02.png', caption: 'Profil Desa' },
+      { src: 'assets/projects/projects7/03.png', caption: 'Data Desa' },
+      { src: 'assets/projects/projects7/04.png', caption: 'Kabar & Informasi' },
+      { src: 'assets/projects/projects7/05.png', caption: 'Potensi Desa' },
+      { src: 'assets/projects/projects7/06.png', caption: 'Pelayanan Administrasi' },
+      { src: 'assets/projects/projects7/07.png', caption: 'Galeri Desa' },
+      { src: 'assets/projects/projects7/08.png', caption: 'Halaman Login' },
+      { src: 'assets/projects/projects7/09.png', caption: 'Dashboard Admin' },
+    ], // ← tambahkan screenshot di sini jika sudah ada
   },
   {
     name: 'Website Pengajuan Surat Desa',

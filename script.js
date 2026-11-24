@@ -918,32 +918,34 @@ document.addEventListener('keydown', e => {
 
 
 /* ================================================================
-   9. FORM KONTAK (kirim tanpa pindah halaman, fallback ke submit biasa)
+   9. FORM KONTAK (kirim → buka WhatsApp dengan pesan terisi)
 ================================================================ */
 (function contactInit() {
   const form = $('#contactForm'), note = $('#formNote');
   if (!form) return;
   const show = (msg, type) => { note.textContent = msg; note.className = 'form-note ' + type; };
 
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
-    const btn = $('button[type="submit"]', form);
-    const label = btn.innerHTML;
-    btn.disabled = true; btn.textContent = 'Mengirim…';
-    show('', '');
-    try {
-      const url = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
-      const res = await fetch(url, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      show('Terima kasih! Pesan Anda sudah terkirim.', 'success');
-    } catch {
-      show('Gagal mengirim lewat halaman ini. Mencoba cara biasa…', 'error');
-      setTimeout(() => form.submit(), 900);
-    } finally {
-      btn.disabled = false; btn.innerHTML = label;
-    }
+    const v = n => form.elements[n]?.value.trim() || '';
+    const text = [
+      'Halo Farman, saya ingin menghubungi Anda lewat portofolio.',
+      '',
+      `Nama: ${v('nama')}`,
+      `Email: ${v('email')}`,
+      v('subjek') ? `Subjek: ${v('subjek')}` : '',
+      '',
+      'Pesan:',
+      v('pesan'),
+    ].filter((l, i, a) => l !== '' || a[i - 1] !== '').join('\n');
+
+    const url = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`;
+    show('Membuka WhatsApp…', 'success');
+    // Dipanggil langsung dari klik pengguna agar tidak diblokir popup blocker
+    const win = window.open(url, '_blank', 'noopener');
+    if (!win) location.href = url;
+    setTimeout(() => { form.reset(); show('', ''); }, 2500);
   });
 })();
 

@@ -35,4 +35,4 @@ Buka `index.html` dengan Live Server (VS Code) agar semua berjalan normal.
 - Animasi otomatis dikurangi untuk pengguna yang mengaktifkan "reduce motion".
 
 ## Form kontak
-Memakai FormSubmit (`formsubmit.co`). Kirim pesan pertama kali, lalu aktifkan lewat email konfirmasi dari FormSubmit.
+Tombol kirim membuka WhatsApp dengan pesan yang sudah terisi (nama, email, subjek, pesan). Nomor tujuan ada di atribut `data-wa` pada `<form id="contactForm">` di `index.html` (format 62…, tanpa +).

@@ -1,138 +1,38 @@
-# 📁 Portofolio — Panduan Edit
+# Portofolio — Panduan Edit
 
 ## Struktur File
-
 ```
 portfolio/
-├── index.html          ← Konten & struktur halaman
-├── style.css           ← Semua styling & tema
-├── script.js           ← Logika interaktif & data project
+├── index.html   ← konten & struktur halaman
+├── style.css    ← styling, tema terang/gelap, responsif
+├── script.js    ← data project + semua interaksi
 └── assets/
-    ├── img/
-    │   └── profile.jpg          ← Foto profil Anda
-    └── projects/
-        ├── project1-1.jpg       ← Screenshot project 1, gambar ke-1
-        ├── project1-2.jpg       ← Screenshot project 1, gambar ke-2
-        ├── ...                  ← dst. (project2-1.jpg, project3-1.jpg, ...)
+    ├── img/profile1.png
+    └── projects/projects1 … projects6/  (screenshot)
+```
+Buka `index.html` dengan Live Server (VS Code) agar semua berjalan normal.
+
+## Edit data project (`script.js` → `PROJECTS_DATA`)
+```js
+{
+  name: 'Nama Project',
+  category: 'Web App · Jenis Project',
+  desc: 'Deskripsi singkat 1–2 kalimat (tampil di kartu).',
+  longDesc: 'Deskripsi lengkap (tampil di jendela Detail).',
+  features: ['Fitur 1', 'Fitur 2'],
+  tags: ['Node.js', 'MySQL'],
+  demo: 'https://…',   // '' jika tidak ada
+  github: '',
+  screenshots: [
+    { src: 'assets/projects/projects7/01.png', caption: 'Keterangan gambar' },
+  ],                    // [] jika belum ada screenshot
+}
 ```
 
----
+## Fitur UI
+- **Tema terang/gelap**: mengikuti pengaturan HP/laptop saat pertama dibuka, bisa diganti lewat tombol (pilihan tersimpan).
+- **Klik gambar project** → langsung terbuka layar penuh. Zoom: scroll / cubit / klik dua kali / tombol +−. Pindah gambar: tombol, panah keyboard, swipe, atau thumbnail. Tutup: Esc, tombol ✕, atau klik area gelap.
+- Animasi otomatis dikurangi untuk pengguna yang mengaktifkan "reduce motion".
 
-## ✏️ Cara Mengganti Data
-
-### 1. Nama
-- **index.html** → Cari `<!-- EDIT: Ganti nama lengkap Anda di sini -->`
-- Ubah `Nama` dan `Lengkap` di hero section
-- Ubah `Nama Lengkap` di About section (`.about-greeting`)
-- Ubah `Nama Anda` di footer
-
-### 2. Foto Profil
-- Simpan foto Anda sebagai: `assets/img/profile.jpg`
-- Format yang didukung: JPG, PNG, WebP
-- Ukuran rekomendasi: minimal 600×700 px, rasio 3:4
-
-### 3. Alamat
-- **index.html** → Cari `<!-- EDIT: Alamat Anda -->`
-- Ubah teks `Kota, Provinsi, Indonesia`
-- Lakukan di 2 tempat: About section & Contact section
-
-### 4. Email
-- **index.html** → Cari semua `email@contoh.com`
-- Ganti dengan email Anda di About, Contact, dan `mailto:` link
-
-### 5. Nomor WhatsApp
-- **index.html** → Cari semua `wa.me/628XXXXXXXXXX`
-- Format: `https://wa.me/62XXXXXXXXXXX` (kode negara tanpa +)
-- Contoh: nomor `0812-3456-7890` → `https://wa.me/6281234567890`
-
-### 6. LinkedIn & GitHub
-- **index.html** → Cari semua `linkedin.com/in/username` dan `github.com/username`
-- Ganti `username` dengan username Anda
-
-### 7. Skill (level & nama)
-- **index.html** → Section Skills (cari `<!-- EDIT: Untuk menambah/menghapus skill -->`)
-- Setiap `.skill-card` punya atribut `data-level="ANGKA"` (0–100)
-- Contoh: `data-level="90"` = progress bar 90%
-- Ubah emoji `.skill-icon` dan teks `.skill-name` sesuai keinginan
-
-### 8. Project & Screenshot
-- **script.js** → Cari komentar `✏️ EDIT: DATA PROJECT`
-- Edit array `PROJECTS_DATA`:
-  ```js
-  {
-    name:        'Nama Project',
-    desc:        'Deskripsi singkat project.',
-    tags:        ['Laravel', 'MySQL', 'JavaScript'],
-    demo:        'https://url-demo.com',     // kosongkan "" jika tidak ada
-    github:      'https://github.com/...',  // kosongkan "" jika tidak ada
-    screenshots: [
-      'assets/projects/project1-1.jpg',
-      'assets/projects/project1-2.jpg',
-      // ... tambahkan hingga 6 gambar
-    ]
-  }
-  ```
-- Salin & tempel blok `{}` untuk menambah project baru
-- Hapus blok `{}` untuk mengurangi project
-
-### 9. Screenshot Project
-- Simpan gambar di folder `assets/projects/`
-- Penamaan bebas, tapi konsisten: `project1-1.jpg`, `project1-2.jpg`, dst.
-- Ukuran rekomendasi: minimal 800×500 px (landscape)
-- Jika gambar tidak ditemukan, otomatis tampil placeholder teks
-
-### 10. CV / Resume
-- **index.html** → Cari `assets/CV_NamaAnda.pdf`
-- Simpan file CV Anda di folder `assets/`
-- Ganti path `href` di tombol "Download CV"
-
-### 11. Statistik Hero
-- **index.html** → Cari `<!-- EDIT: Sesuaikan angka statistik Anda -->`
-- Ubah angka `3+`, `20+`, `10+` dan labelnya
-
-### 12. Teks Animasi Typed (Hero)
-- **script.js** → Cari `TYPED_ROLES`
-- Ubah teks di dalam array sesuai keinginan
-
----
-
-## 🎨 Kustomisasi Warna
-
-Edit variabel CSS di `style.css` (bagian `:root`):
-
-```css
---accent-gold:  #c9a84c;  /* Warna aksen emas */
---accent-blue:  #4f8ef7;  /* Warna aksen biru */
-```
-
----
-
-## 📧 Mengaktifkan Form Kontak
-
-Secara default form hanya simulasi. Untuk fungsional penuh:
-
-**Opsi A — Formspree (gratis, mudah):**
-1. Daftar di [formspree.io](https://formspree.io)
-2. Buat form, dapatkan endpoint URL
-3. Di `script.js`, ganti bagian `setTimeout` simulasi dengan:
-   ```js
-   const res = await fetch('https://formspree.io/f/KODE_ANDA', {
-     method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify({ name, email, message })
-   });
-   ```
-
-**Opsi B — EmailJS:**
-1. Daftar di [emailjs.com](https://emailjs.com)
-2. Ikuti dokumentasi integrasi EmailJS
-
----
-
-## 🚀 Cara Menjalankan
-
-1. Pastikan semua file ada di satu folder
-2. Buka `index.html` di browser — selesai!
-3. Untuk development: gunakan Live Server (VS Code extension)
-
-> **Tips:** Gunakan VS Code + Live Server untuk melihat perubahan secara real-time.
+## Form kontak
+Memakai FormSubmit (`formsubmit.co`). Kirim pesan pertama kali, lalu aktifkan lewat email konfirmasi dari FormSubmit.

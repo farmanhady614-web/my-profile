@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,21 @@
   <!-- =============================================
     EDIT: Ganti judul tab browser di sini
   ============================================= -->
-  <title>Portofolio — Fullstack Developer</title>
+  <title>Farman Hady — Fullstack Developer</title>
+  <meta name="description" content="Portofolio Farman Hady, Fullstack Developer: sistem informasi apotek, sekolah, kasir, dan website profesional." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="color-scheme" content="dark light" />
+  <!-- Terapkan tema sebelum halaman tampil agar tidak berkedip -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('portfolio-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute('content', t === 'light' ? '#f6f4ef' : '#0a0a0f');
+    })();
+  </script>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,6 +30,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <a href="#about" class="skip-link">Lewati ke konten</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ============================================================
     NAVBAR
@@ -30,26 +46,29 @@
       </a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li style="--i:0"><a href="#home" class="nav-link active">Home</a></li>
+        <li style="--i:1"><a href="#about" class="nav-link">About</a></li>
+        <li style="--i:2"><a href="#skills" class="nav-link">Skills</a></li>
+        <li style="--i:3"><a href="#projects" class="nav-link">Projects</a></li>
+        <li style="--i:4"><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
         <!-- Tombol Dark/Light Mode -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-icon sun">☀</span>
-          <span class="theme-icon moon">◐</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ganti tema">
+          <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
         </button>
         <!-- Hamburger Mobile -->
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
 
   <!-- ============================================================
     HERO SECTION
@@ -76,16 +95,16 @@
     </div>
 
     <div class="hero-content">
-      <p class="hero-tagline">Selamat datang di portofolio saya</p>
+      <p class="hero-tagline intro" style="--i:0">Selamat datang di portofolio saya</p>
 
       <!-- EDIT: Ganti nama lengkap Anda di sini -->
-      <h1 class="hero-name">
-        <span class="name-line">Farman</span>
-        <span class="name-line accent">Hady</span>
+      <h1 class="hero-name intro" style="--i:1">
+        <span class="name-line"><span style="--i:1">Farman</span></span>
+        <span class="name-line accent"><span style="--i:2">Hady</span></span>
       </h1>
 
       <!-- EDIT: Ganti profesi jika perlu -->
-      <div class="hero-role">
+      <div class="hero-role intro" style="--i:3">
         <span class="role-bracket">&lt;</span>
         <span id="typedRole"></span>
         <span class="cursor-blink">|</span>
@@ -93,20 +112,21 @@
       </div>
 
       <!-- EDIT: Ganti deskripsi singkat Anda di sini -->
-      <p class="hero-desc">
+      <p class="hero-desc intro" style="--i:4">
         Saya membangun aplikasi web yang cepat, skalabel, dan berpusat pada pengalaman pengguna —
         dari database hingga antarmuka yang memukau.
       </p>
 
-      <div class="hero-cta">
+      <div class="hero-cta intro" style="--i:5">
         <!-- EDIT: Ganti href ke file CV Anda, misal: assets/CV_NamaAnda.pdf -->
         <a href="#projects" class="btn btn-outline">
           Lihat Project <span class="btn-icon">→</span>
         </a>
+        <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
       </div>
 
       <!-- Stats bawah hero -->
-      <div class="hero-stats">
+      <div class="hero-stats intro" style="--i:6">
         <!-- EDIT: Sesuaikan angka statistik Anda -->
         <div class="stat">
           <span class="stat-num">3+</span>
@@ -126,7 +146,7 @@
     </div>
 
     <!-- Scroll indicator -->
-    <div class="scroll-indicator">
+    <div class="scroll-indicator intro" style="--i:8" aria-hidden="true">
       <div class="scroll-line"></div>
       <span>Scroll</span>
     </div>
@@ -148,7 +168,7 @@
         <div class="about-photo-wrapper">
           <div class="photo-frame">
             <!-- EDIT: Ganti src ke foto profil Anda, misal: assets/img/foto-profil.jpg -->
-            <img src="assets/img/profile1.png" alt="Foto Profil" class="profile-photo" id="profilePhoto" onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'" />
+            <img src="assets/img/profile1.png" alt="Foto Profil" class="profile-photo" id="profilePhoto" width="280" height="340" decoding="async" onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'" />
             <div class="photo-placeholder" id="photoPlaceholder">
               <span>Foto<br/>Profil</span>
             </div>
@@ -181,7 +201,7 @@
             <div class="bio-row">
               <span class="bio-label">📛 Nama</span>
               <!-- EDIT: Nama lengkap -->
-              <span class="bio-value">Farman Hadi</span>
+              <span class="bio-value">Farman Hady</span>
             </div>
             <div class="bio-row">
               <span class="bio-label">📍 Alamat</span>
@@ -191,17 +211,17 @@
             <div class="bio-row">
               <span class="bio-label">📧 Email</span>
               <!-- EDIT: Email Anda -->
-              <a href="farmanhady614@gmail.com" class="bio-value bio-link">farmanhady614@gmail.com</a>
+              <a href="mailto:farmanhady614@gmail.com" class="bio-value bio-link">farmanhady614@gmail.com</a>
             </div>
             <div class="bio-row">
               <span class="bio-label">💬 WhatsApp</span>
               <!-- EDIT: Nomor WhatsApp Anda (format internasional, tanpa +) -->
-              <a href="https://wa.me/6287895623651" target="_blank" class="bio-value bio-link">+62 878-9562-3651</a>
+              <a href="https://wa.me/6287895623651" target="_blank" rel="noopener noreferrer" class="bio-value bio-link">+62 878-9562-3651</a>
             </div>
             <div class="bio-row">
               <span class="bio-label">🐙 GitHub</span>
               <!-- EDIT: URL GitHub Anda -->
-              <a href="https://github.com/farmanhady614-web" target="_blank" class="bio-value bio-link">github.com/farmanhady614-web</a>
+              <a href="https://github.com/farmanhady614-web" target="_blank" rel="noopener noreferrer" class="bio-value bio-link">github.com/farmanhady614-web</a>
             </div>
           </div>
         </div>
@@ -228,59 +248,59 @@
         EDIT: Untuk menambah/menghapus skill, tambahkan atau hapus elemen .skill-card di bawah.
         Format: <div class="skill-card" data-level="ANGKA_0-100">
                   <div class="skill-icon">EMOJI</div>
-                  <span class="skill-name">NAMA SKILL</span>
+                  <div class="skill-head"><span class="skill-name">NAMA SKILL</span><span class="skill-pct">0%</span></div>
                   <div class="skill-bar"><div class="skill-fill"></div></div>
                 </div>
       -->
       <div class="skills-grid">
         <div class="skill-card" data-level="90">
           <div class="skill-icon">🌐</div>
-          <span class="skill-name">HTML</span>
+          <div class="skill-head"><span class="skill-name">HTML</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="85">
           <div class="skill-icon">🎨</div>
-          <span class="skill-name">CSS</span>
+          <div class="skill-head"><span class="skill-name">CSS</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="80">
           <div class="skill-icon">⚡</div>
-          <span class="skill-name">JavaScript</span>
+          <div class="skill-head"><span class="skill-name">JavaScript</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="75">
           <div class="skill-icon">🟢</div>
-          <span class="skill-name">Node.js</span>
+          <div class="skill-head"><span class="skill-name">Node.js</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="75">
           <div class="skill-icon">🚂</div>
-          <span class="skill-name">Express.js</span>
+          <div class="skill-head"><span class="skill-name">Express.js</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="80">
           <div class="skill-icon">🗄️</div>
-          <span class="skill-name">MySQL</span>
+          <div class="skill-head"><span class="skill-name">MySQL</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="70">
           <div class="skill-icon">🐘</div>
-          <span class="skill-name">PHP</span>
+          <div class="skill-head"><span class="skill-name">PHP</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="72">
           <div class="skill-icon">🔴</div>
-          <span class="skill-name">Laravel</span>
+          <div class="skill-head"><span class="skill-name">Laravel</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="85">
           <div class="skill-icon">🐙</div>
-          <span class="skill-name">Git & GitHub</span>
+          <div class="skill-head"><span class="skill-name">Git & GitHub</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
         <div class="skill-card" data-level="78">
           <div class="skill-icon">✏️</div>
-          <span class="skill-name">UI/UX Design</span>
+          <div class="skill-head"><span class="skill-name">UI/UX Design</span><span class="skill-pct">0%</span></div>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
       </div>
@@ -342,7 +362,7 @@
               </div>
             </a>
 
-            <a href="https://wa.me/6287895623651" target="_blank" class="contact-item">
+            <a href="https://wa.me/6287895623651" target="_blank" rel="noopener noreferrer" class="contact-item">
               <div class="contact-item-icon">💬</div>
               <div>
                 <span class="contact-item-label">WhatsApp</span>
@@ -356,7 +376,7 @@
               <div>
                 <span class="contact-item-label">Lokasi</span>
                 <!-- EDIT: Alamat / Kota -->
-                <span class="contact-item-value">Masbagik, Kab.Lombok Timur,Nusa Tenggara Barat, Indonesia</span>
+                <span class="contact-item-value">Masbagik, Kab. Lombok Timur, Nusa Tenggara Barat, Indonesia</span>
               </div>
             </div>
           </div>
@@ -364,10 +384,10 @@
           <!-- Social Media -->
           <div class="social-links">
             <!-- EDIT: Ganti href ke profil sosmed Anda -->
-            <a href="https://github.com/farmanhady614-web" target="_blank" class="social-btn" title="GitHub">
+            <a href="https://github.com/farmanhady614-web" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
             </a>
-            <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" target="_blank" class="social-btn" title="Instagram">
+            <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
           </div>
@@ -404,6 +424,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ============================================================
     FOOTER
   ============================================================ -->
@@ -423,7 +445,6 @@
         <div class="footer-socials">
           <!-- EDIT: Ganti href ke profil sosmed Anda -->
           <a href="https://github.com/farmanhady614-web" target="_blank" aria-label="GitHub">GH</a>
-          <a href="https://linkedin.com/in/username" target="_blank" aria-label="LinkedIn">LI</a>
           <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" target="_blank" aria-label="Instagram">IG</a>
         </div>
       </div>
@@ -431,15 +452,40 @@
   </footer>
 
   <!-- ============================================================
-    PROJECT DETAIL MODAL
-    (diisi dan dikontrol oleh script.js)
+    PROJECT DETAIL MODAL (diisi oleh script.js)
   ============================================================ -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="projectModal">
-      <button class="modal-close" id="modalClose" aria-label="Tutup modal">✕</button>
-      <div class="modal-inner" id="modalInner">
-        <!-- Diisi oleh JavaScript -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Tutup detail project">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal-inner" id="modalInner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    LIGHTBOX — pratinjau gambar layar penuh dengan zoom
+  ============================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau gambar" aria-hidden="true">
+    <div class="lb-backdrop"></div>
+    <div class="lb-top">
+      <div class="lb-info">
+        <span class="lb-title"></span>
+        <span class="lb-counter"></span>
       </div>
+      <div class="lb-tools">
+        <button class="lb-btn lb-zoom-out" type="button" aria-label="Perkecil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6"/></svg></button>
+        <button class="lb-btn lb-zoom-in" type="button" aria-label="Perbesar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></button>
+        <button class="lb-btn lb-close" type="button" aria-label="Tutup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+    </div>
+    <button class="lb-btn lb-nav prev" type="button" aria-label="Gambar sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="lb-btn lb-nav next" type="button" aria-label="Gambar berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="lb-stage"><div class="lb-pan"><img class="lb-img" alt="" /></div></div>
+    <div class="lb-bottom">
+      <p class="lb-caption"></p>
+      <div class="lb-thumbs"></div>
+      <span class="lb-hint">Scroll / cubit untuk zoom · klik dua kali untuk memperbesar · ← → untuk pindah · Esc untuk tutup</span>
     </div>
   </div>
 
